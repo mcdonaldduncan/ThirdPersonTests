@@ -23,8 +23,11 @@ public class CameraFollower : MonoBehaviour
 
     void ThirdPersonPosition()
     {
-        float x = (xOffset) * Mathf.Sin(target.rotation.y);
-        float z = (xOffset) * Mathf.Cos(target.rotation.y);
+        float rotation = Mathf.Deg2Rad * target.rotation.eulerAngles.y;
+
+        float x = (xOffset) * Mathf.Sin(rotation);
+        float z = (xOffset) * Mathf.Cos(rotation);
+
 
         transform.position = new Vector3(x, yOffset, z) + target.position;
     }
